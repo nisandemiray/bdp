@@ -1,0 +1,7 @@
+crow:82
+pigeon:58
+plane:5000
+seagull:135
+stork:195
+swallow:28
+unknown_bird:100
