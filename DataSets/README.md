@@ -1,0 +1,1 @@
+Bütün veri setleri: https://drive.google.com/drive/folders/1LNCpJ23uIRPVbtdUsVUI597vOdxwUe4J?usp=sharing
