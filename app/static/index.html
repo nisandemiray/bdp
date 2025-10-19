@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KuşGöz - Bird Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-crow"></i> KuşGöz - Bird Detection & Tracking</h1>
+        </header>
+
+        <main class="main-content">
+            <aside class="sidebar">
+                <div class="video-list-container card">
+                    <h2><i class="fas fa-video"></i> Available Videos</h2>
+                    <ul id="video-list">
+                        <!-- Video items will be populated by JS -->
+                    </ul>
+                </div>
+
+                <div class="upload-container card">
+                    <h2><i class="fas fa-upload"></i> Upload Video</h2>
+                    <form id="upload-form">
+                        <input type="file" id="video-file-input" name="video" accept="video/*" required>
+                        <button type="submit" class="btn"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
+                    </form>
+                    <div id="upload-status"></div>
+                </div>
+
+                <div class="info-container card">
+                    <h2><i class="fas fa-info-circle"></i> Information</h2>
+                    <p>
+                        <b>KuşGöz</b> is a tool for detecting and tracking birds in video files.
+                        Select a pre-existing video from the list or upload your own to begin.
+                        The system will process each frame to identify birds, calculate their distance, and assign a tracking ID.
+                        Trained birds (for now) are seagull, stork, crow, swallow, unknown_bird, plane, pigeon (ongoing...).
+                    </p>
+                </div>
+            </aside>
+
+            <section class="viewer-section">
+                <div class="viewer-container card">
+                    <h2 id="viewer-title">Select a video to begin</h2>
+                    <div id="image-display-container">
+                        <img id="annotated-frame" src="" alt="Processed Frame">
+                        <div id="loading-spinner" class="spinner" style="display: none;"></div>
+                    </div>
+                    <div class="controls-container">
+                        <button id="prev-frame-btn" class="btn" disabled><i class="fas fa-backward-step"></i></button>
+                        <button id="play-btn" class="btn" disabled><i class="fas fa-play"></i></button>
+                        <button id="pause-btn" class="btn" disabled style="display: none;"><i class="fas fa-pause"></i></button>
+                        <input type="range" id="frame-slider" min="0" max="100" value="0" disabled>
+                        <button id="next-frame-btn" class="btn" disabled><i class="fas fa-forward-step"></i></button>
+                        <div class="frame-input-container">
+                            <label for="frame-input">Frame:</label>
+                            <input type="number" id="frame-input" min="1" value="0" disabled> <span id="total-frames-display">/ 0</span>
+                        </div>
+                        <button id="reset-tracker-btn" class="btn" disabled><i class="fas fa-sync-alt"></i> Reset Tracker</button>
+                    </div>
+                </div>
+
+                <div class="detections-container card">
+                    <h2><i class="fas fa-search"></i> Detections</h2>
+                    <div id="detections-log">
+                        <p>No detections yet.</p>
+                    </div>
+                </div>
+
+                <div class="analysis-container card">
+                    <h2><i class="fas fa-chart-bar"></i> Video Analysis <small>(Next 30 Frames)</small></h2>
+                    <div class="analysis-controls">
+                        <button id="analyze-video-btn" class="btn" disabled><i class="fas fa-cogs"></i> Analyze Next 30 Frames</button>
+                        <div id="analysis-spinner" class="spinner" style="display: none;"></div>
+                    </div>
+                    <div id="analysis-results">
+                        <p>Click the "Analyze Next 30 Frames" button to generate a summary report.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
