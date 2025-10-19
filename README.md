@@ -57,7 +57,7 @@ Video tabanlı yapay zekâ ile kuşların **otomatik tespiti**, **tür sınıfla
 2. **Etiketleme:** **CVAT** üzerinde sınıf/box anotasyonları.  
 3. **Ortam:** **Colab + Google Drive**.  
 4. **Ön işleme:** Veri konsolidasyonu, temizlik, **%80/%20** eğitim/validasyon ayrımı.  
-5. **Model eğitimi:** **YOLOv8n**, **640** çözünürlük, **100 epoch**.  
+5. **Model eğitimi:** **YOLOv11n**, **1920** çözünürlük, **100 epoch**.  
 6. **Test & Devreye Alım:** Modelin yazılıma gömülmesi ve arayüzle entegrasyon.
 
 ---
@@ -67,7 +67,7 @@ Video tabanlı yapay zekâ ile kuşların **otomatik tespiti**, **tür sınıfla
 - **Mesafe/irtifa tahmini:** **Geometrik ortalama** tabanlı model.  
 - **Takip & düzgünleştirme:** **Son 5 görünüm** üzerinden mesafe düzeltmesi.  
 - **Kalıcılık metriği:** Nesnenin ardışık kaç frame’de göründüğünün hesabı.  
-- **Sürü tespiti:** Aynı tip ≥2 nesneden **küçük/kararsız** objelere genişletme.  
+- **Sürü tespiti:** Aynı tip ≥3 nesneden **küçük/kararsız** objelere genişletme.  
 - **Parametrik mimari:** Tüm algoritmalar **ayarlanabilir**.  
 - **Arayüz:** Frame-frame oynatma, doğrudan hedef frame’e atlama, hızlı atlama; **kayıt ve stream** kaynaklarıyla çalışma.
 
